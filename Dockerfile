@@ -3,9 +3,6 @@ WORKDIR '/app'
 COPY ./package.json ./
 COPY . .
 
-ARG BACKEND_URL
-ENV BACKEND_URL BACKEND_URL
-
 RUN yarn
 RUN yarn build
 
@@ -14,6 +11,10 @@ COPY nginx.conf /etc/nginx/conf.d/configfile.template
 
 ENV PORT 8080
 ENV HOST 0.0.0.0
+
+ARG BACKEND_URL
+ENV BACKEND_URL BACKEND_URL
+
 EXPOSE 8080
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
