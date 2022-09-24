@@ -3,6 +3,8 @@ WORKDIR '/app'
 COPY ./package.json ./
 COPY . .
 
+RUN   sed -i "s|$BACKEND_URL|http://teste |g" /src/App.js
+
 RUN yarn
 RUN yarn build
 
