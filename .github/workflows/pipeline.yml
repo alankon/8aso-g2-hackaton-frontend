@@ -44,9 +44,7 @@ jobs:
 
       - name: Deploy to Cloud Run
         id: cloudrun
-        env: 
-          ARTIFACT_REGISTRY_REPO: ${{ secrets.ARTIFACT_REGISTRY_REPO }}
-        uses: 'google-github-actions/deploy-cloudrun@v0'
+        uses: "google-github-actions/deploy-cloudrun@v0"
         with:
-          service: 'frontend-cloud-run'
+          service: "frontend-cloud-run"
           image: ${{ secrets.ARTIFACT_REGISTRY_REPO }}/frontend:latest
