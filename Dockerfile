@@ -4,7 +4,6 @@ COPY ./package.json ./
 COPY . .
 
 ARG BACKEND_URL
-ENV BACKEND_URL BACKEND_URL
 
 RUN  sed -i "s|\$BACKEND_URL|${BACKEND_URL} |g" ./src/App.js
 
