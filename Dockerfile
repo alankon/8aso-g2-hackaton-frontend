@@ -6,6 +6,7 @@ RUN yarn
 RUN yarn build
 
 FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/configfile.template
 
 ENV PORT 8080
 ENV HOST 0.0.0.0
