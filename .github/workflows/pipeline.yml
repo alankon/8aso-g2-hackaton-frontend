@@ -30,6 +30,7 @@ jobs:
           docker push ${{ secrets.ARTIFACT_REGISTRY_REPO }}/frontend:latest
 
   DeployProd:
+    needs: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
